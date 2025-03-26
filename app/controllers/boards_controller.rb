@@ -29,8 +29,9 @@ class BoardsController < ApplicationController
   end
 
   def destroy
+    @board = current_user.boards.find(params[:id])
     @board.destroy
-    redirect_to boards_path
+    head :no_content
   end
 
   private
