@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :boards, except: [:new, :edit]
+  resources :boards, except: [:new, :edit] do
+    resources :items, except: [:new, :edit]
+  end
   get "current_user", to: 'current_user#index'
   devise_for :users, path: '', path_names: {
     sign_in: 'login',

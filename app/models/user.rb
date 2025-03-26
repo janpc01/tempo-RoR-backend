@@ -6,4 +6,5 @@ class User < ApplicationRecord
          :jwt_authenticatable, jwt_revocation_strategy: self
   
   has_many :boards, dependent: :destroy
+  has_many :items, through: :boards
 end
